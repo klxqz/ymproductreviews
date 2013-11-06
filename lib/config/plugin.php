@@ -4,7 +4,7 @@ return array(
     'name' => 'Отзывы о товаре с Яндекс.Маркета',
     'description' => 'Вывод отзывов в карточке товара',
     'vendor'=>903438,
-    'version'=>'1.0.0',
+    'version'=>'1.0.1',
     'img'=>'img/ymproductreviews.png',
     'shop_settings' => true,
     'frontend'    => true,

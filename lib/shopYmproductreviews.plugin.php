@@ -3,6 +3,25 @@
 
 class shopYmproductreviewsPlugin extends shopPlugin
 {
+    protected static $plugin;
+    
+    public function __construct($info)
+    {
+        parent::__construct($info);
+        if(!self::$plugin) {
+            self::$plugin = &$this;
+        }
+    }
+    
+    protected static function getThisPlugin()
+    {
+        if(self::$plugin) {
+            return self::$plugin;
+        } else {
+            return wa()->getPlugin('ymproductreviews'); 
+        }       
+    }
+    
     public function backendProductEdit($product)
     {
         $link = '';
@@ -33,7 +52,7 @@ class shopYmproductreviewsPlugin extends shopPlugin
 
         $tmp_path = 'plugins/ymproductreviews/templates/Ymproductreviews.html';
         
-        $plugin = wa()->getPlugin('ymproductreviews');
+        $plugin = $plugin = self::getThisPlugin();
 
         if($plugin->getSettings('status')) {
             
